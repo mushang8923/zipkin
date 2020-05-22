@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: OrderProvider
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    sender:
+      type: kafka
+    kafka:
+      topic: zipkin
+      bootstrap-servers: localhost:9092
+
+server:
+  port: 17070
+
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5 # 间隔多久去拉取服务注册信息
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true  # 设置微服务调用地址为IP优先（缺省为false）
+    lease-renewal-interval-in-seconds: 30 # 心跳时间，即服务续约间隔时间（缺省为30s）
+    lease-expiration-duration-in-seconds: 90 # 失效时间，即服务续约到期时间（缺省为90s）
+
+logging:
+  config:
+    classpath: logback-spring.xml
+  path: /data/logs/${spring.application.name}

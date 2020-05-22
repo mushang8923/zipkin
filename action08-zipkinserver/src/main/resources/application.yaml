@@ -1,0 +1,22 @@
+server:
+  port: 9411
+#\u914D\u7F6Ekafka
+spring:
+  application:
+    name: zipkinserver
+zipkin:
+  storage:
+    type: elasticsearch
+    elasticsearch:
+      hosts: http://localhost:9200
+      #      username: elastic
+      #      password: changeme
+      cluster: elasticsearch
+      index: zipkin
+      index-shards: 1
+      index-replicas: 1
+  collector:
+    kafka:
+      bootstrap-servers: localhost:9092
+      zookeeper: localhost:2181
+      topic: zipkin
