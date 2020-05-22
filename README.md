@@ -37,5 +37,5 @@ output {
 #####    stdout{
 #####        codec=>rubydebug
 #####    }
-#####}
+}
 
