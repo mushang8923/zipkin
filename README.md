@@ -16,6 +16,8 @@
 ### 1.通过zipkinserver能看出整个调用链的过程
 ### 2.通过业务日志看出业务相关信息
 
+![image] https://github.com/mushang8923/zipkin/blob/master/bus.png
+
 ### 然后通过kibana查看相关的日志信息，通过zipkinui查看调用链信息
 ### logstash 配置文件如下
 ##### input {
